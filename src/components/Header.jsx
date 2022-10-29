@@ -1,7 +1,35 @@
-import React from 'react';
+import styled from 'styled-components';
 
 const Header = () => {
-  return <div>헤더</div>;
+  return (
+    <StHeader>
+      <StTitleContainer>
+        <StTitle>Angular / Angular-cli</StTitle>
+      </StTitleContainer>
+    </StHeader>
+  );
 };
 
 export default Header;
+
+const StHeader = styled.header`
+  position: fixed;
+  display: flex;
+  top: 0;
+  width: 100vw;
+  height: 4rem;
+  background-color: gray;
+  align-items: center;
+  justify-content: center;
+`;
+
+const StTitleContainer = styled.div`
+  width: 100%;
+  max-width: calc(1200px + 4rem);
+  background-color: white;
+`;
+
+const StTitle = styled.h1`
+  width: 100%;
+  text-align: center;
+`;
