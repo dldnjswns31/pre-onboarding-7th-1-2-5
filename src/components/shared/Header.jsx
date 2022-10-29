@@ -26,6 +26,7 @@ const StHeader = styled.header`
 const StTitleContainer = styled.div`
   width: 100%;
   max-width: calc(1200px + 4rem);
+  margin: 0 2rem;
   background-color: white;
 `;
 

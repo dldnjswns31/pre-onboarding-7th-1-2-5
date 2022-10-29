@@ -1,8 +1,7 @@
-import React from 'react';
-import Header from '../components/Header';
+import ListFrame from '../components/List/ListFrame';
 
 const List = () => {
-  return <div>hello,world!</div>;
+  return <ListFrame />;
 };
 
 export default List;

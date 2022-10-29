@@ -1,6 +1,6 @@
 import GlobalStyle from './shared/GlobalStyle';
 import Routers from './Router';
-import Header from './components/Header';
+import Header from './components/shared/Header';
 
 const App = () => {
   return (
