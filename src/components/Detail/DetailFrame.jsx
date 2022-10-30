@@ -1,11 +1,14 @@
 import styled from 'styled-components';
+import IssueContent from './IssueContent';
 import IssueInfo from './IssueInfo';
 
 const DetailFrame = ({ issue }) => {
+  console.log(issue);
   return (
     <StMain>
       <StContainer>
         <IssueInfo issue={issue} />
+        <IssueContent issue={issue} />
       </StContainer>
     </StMain>
   );

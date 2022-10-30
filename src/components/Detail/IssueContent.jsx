@@ -1,7 +1,7 @@
-import React from 'react';
+import MDEditor from '@uiw/react-md-editor';
 
-const IssueContent = () => {
-  return <div />;
+const IssueContent = ({ issue }) => {
+  return <MDEditor.Markdown source={issue.body} />;
 };
 
 export default IssueContent;
