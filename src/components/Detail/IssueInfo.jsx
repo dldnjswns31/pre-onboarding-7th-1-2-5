@@ -50,7 +50,6 @@ const StUserImage = styled.img`
 const StListInfoContainer = styled.div`
   flex: 19 1 0;
   margin-right: 2rem;
-  background-color: aliceblue;
 `;
 
 const StListTitleAndInfo = styled.div`
@@ -71,7 +70,6 @@ const StListInfo = styled.div`
 const StListCommentContainer = styled.div`
   display: flex;
   flex: 1 0 4rem;
-  background-color: antiquewhite;
   justify-content: center;
   align-items: center;
 `;
