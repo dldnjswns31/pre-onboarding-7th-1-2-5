@@ -9,13 +9,16 @@ const App = () => {
   const [issues, setIssues] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
   useEffect(() => {
-    apis.getIssues(1).then((res) => setIssues([...res.data]));
+    apis.getIssues(1).then((res) => {
+      setIssues([...issues, ...res.data]);
+      setPageNumber(pageNumber + 1);
+    });
   }, []);
   return (
     <>
       <GlobalStyle />
       <Header />
-      <IssueContext.Provider value={issues}>
+      <IssueContext.Provider value={{ issues, setIssues, pageNumber, setPageNumber }}>
         <Routers />
       </IssueContext.Provider>
     </>
