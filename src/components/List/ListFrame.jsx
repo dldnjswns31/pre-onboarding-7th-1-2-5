@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { apis } from '../../shared/axios';
+import Advertisement from '../shared/Advertisement';
 import List from './List';
 
 const ListFrame = ({ obj }) => {
@@ -41,10 +42,14 @@ const ListFrame = ({ obj }) => {
               //   ) : (
               //     <List key={issue.number} issue={issue} />
               // );
-              if (issues.length - 1 === idx) {
-                return <List key={Date() + idx} issue={issue} listRef={listRef} />;
+              if (issue === 'advertisement') {
+                return <Advertisement key={Date()} />;
               } else {
-                return <List key={Date() + idx} issue={issue} />;
+                if (issues.length - 1 === idx) {
+                  return <List key={issue.number} issue={issue} listRef={listRef} />;
+                } else {
+                  return <List key={issue.number} issue={issue} />;
+                }
               }
             })}
           {isLastIssue && <div>issue가 더 이상 존재하지 않습니다.</div>}
