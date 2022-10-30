@@ -4,8 +4,8 @@ import IssueContext from '../context/IssueContext';
 const List = () => {
   return (
     <IssueContext.Consumer>
-      {(issues) => {
-        return <ListFrame issues={issues} />;
+      {(obj) => {
+        return <ListFrame obj={obj} />;
       }}
     </IssueContext.Consumer>
   );

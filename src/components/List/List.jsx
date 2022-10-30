@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const List = ({ issue }) => {
+const List = ({ issue, listRef }) => {
   return (
-    <StList>
+    <StList ref={listRef}>
       <StListLeftContent>
         <StListTitleAndInfo>
           <StListIssueNumber># {issue.number}</StListIssueNumber>

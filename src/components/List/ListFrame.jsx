@@ -1,16 +1,53 @@
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { apis } from '../../shared/axios';
 import List from './List';
 
-const ListFrame = ({ issues }) => {
-  console.log(issues);
+const ListFrame = ({ obj }) => {
+  const { issues, setIssues, pageNumber, setPageNumber } = obj;
+  const [isLastIssue, setIsLastIssue] = useState(false);
+  const observerRef = useRef(IntersectionObserver);
+  const listRef = useRef(null);
+
+  const ioCallback = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        observer.unobserve(entry.target);
+        apis.getIssues(pageNumber).then((res) => {
+          if (res.data.length !== 0) {
+            setIssues([...issues, ...res.data]);
+            setPageNumber(pageNumber + 1);
+          } else {
+            setIsLastIssue(true);
+          }
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(ioCallback);
+    listRef.current && observerRef.current.observe(listRef.current);
+  }, [issues]);
+
   return (
     <StMain>
       <StContainer>
         <ul>
           {issues &&
-            issues.map((issue) => {
-              return <List key={issue.number} issue={issue} />;
+            issues.map((issue, idx) => {
+              //   issues.length - 1 === idx ? (
+              //     <List key={issue.number} issue={issue} ref={listRef} />
+              //   ) : (
+              //     <List key={issue.number} issue={issue} />
+              // );
+              if (issues.length - 1 === idx) {
+                return <List key={Date() + idx} issue={issue} listRef={listRef} />;
+              } else {
+                return <List key={Date() + idx} issue={issue} />;
+              }
             })}
+          {isLastIssue && <div>issue가 더 이상 존재하지 않습니다.</div>}
         </ul>
       </StContainer>
     </StMain>
