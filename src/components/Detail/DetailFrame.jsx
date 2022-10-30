@@ -1,14 +1,35 @@
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { apis } from '../../shared/axios';
+import Spinner from '../shared/Spinner';
 import IssueContent from './IssueContent';
 import IssueInfo from './IssueInfo';
 
-const DetailFrame = ({ issue }) => {
-  console.log(issue);
+const DetailFrame = () => {
+  const { id } = useParams();
+
+  const [issue, setIssue] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    apis.getIssue(id).then((res) => {
+      setIssue({ ...res.data });
+      setIsLoading(false);
+    });
+  }, []);
+
   return (
     <StMain>
       <StContainer>
-        <IssueInfo issue={issue} />
-        <IssueContent issue={issue} />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <>
+            <IssueInfo issue={issue} />
+            <IssueContent issue={issue} />
+          </>
+        )}
       </StContainer>
     </StMain>
   );
