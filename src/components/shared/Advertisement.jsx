@@ -1,14 +1,17 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Advertisement = () => {
   return (
     <StAdvertisement>
-      <StImageContainer>
-        <StAdvertisementImage
-          src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
-          alt="advertisement"
-        />
-      </StImageContainer>
+      <Link to="https://wanted.co.kr">
+        <StImageContainer>
+          <StAdvertisementImage
+            src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
+            alt="advertisement"
+          />
+        </StImageContainer>
+      </Link>
     </StAdvertisement>
   );
 };
