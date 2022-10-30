@@ -1,21 +1,24 @@
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const List = ({ issue, listRef }) => {
   return (
     <StList ref={listRef}>
-      <StListLeftContent>
-        <StListTitleAndInfo>
-          <StListIssueNumber># {issue.number}</StListIssueNumber>
-          <StListTitle>{issue.title}</StListTitle>
-        </StListTitleAndInfo>
-        <StListInfo>
-          작성자: {issue.user.login}, 작성일:{' '}
-          {`${issue.created_at.slice(0, 4)}년 ${issue.created_at.slice(5, 7)}월 ${issue.created_at.slice(8, 10)}일`}
-        </StListInfo>
-      </StListLeftContent>
-      <StListRightContent>
-        <StCommentNumber>코멘트 : {issue.comments}</StCommentNumber>
-      </StListRightContent>
+      <Link to={`/issue/${issue.number}`} state={issue}>
+        <StListLeftContent>
+          <StListTitleAndInfo>
+            <StListIssueNumber># {issue.number}</StListIssueNumber>
+            <StListTitle>{issue.title}</StListTitle>
+          </StListTitleAndInfo>
+          <StListInfo>
+            작성자: {issue.user.login}, 작성일:{' '}
+            {`${issue.created_at.slice(0, 4)}년 ${issue.created_at.slice(5, 7)}월 ${issue.created_at.slice(8, 10)}일`}
+          </StListInfo>
+        </StListLeftContent>
+        <StListRightContent>
+          <StCommentNumber>코멘트 : {issue.comments}</StCommentNumber>
+        </StListRightContent>
+      </Link>
     </StList>
   );
 };
@@ -23,9 +26,12 @@ const List = ({ issue, listRef }) => {
 export default List;
 
 const StList = styled.li`
-  display: flex;
   padding: 1rem 0;
   border-bottom: 1px solid #000000;
+
+  a {
+    display: flex;
+  }
 `;
 
 const StListLeftContent = styled.div`
