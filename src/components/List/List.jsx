@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const List = ({ issue, listRef }) => {
   return (
     <StList ref={listRef}>
-      <Link to={`/issue/${issue.number}`} state={issue}>
+      <Link to={`/issue/${issue.number}`} state={{ issue }}>
         <StListLeftContent>
           <StListTitleAndInfo>
             <StListIssueNumber># {issue.number}</StListIssueNumber>

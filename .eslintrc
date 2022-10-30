@@ -3,7 +3,7 @@
   "rules": {
     "no-var": "error",
     "no-multiple-empty-lines": "error",
-    "no-console": ["error", { "allow": ["warn"] }],
+    // "no-console": ["error", { "allow": ["warn"] }],
     "eqeqeq": "error",
     "dot-notation": "warn",
     "no-unused-vars": "warn",
