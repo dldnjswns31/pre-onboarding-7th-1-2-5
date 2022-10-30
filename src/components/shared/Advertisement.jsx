@@ -1,17 +1,16 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Advertisement = () => {
   return (
     <StAdvertisement>
-      <Link to="https://wanted.co.kr">
+      <StAnchor href="https://www.wanted.co.kr" target="_blank">
         <StImageContainer>
           <StAdvertisementImage
             src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"
             alt="advertisement"
           />
         </StImageContainer>
-      </Link>
+      </StAnchor>
     </StAdvertisement>
   );
 };
@@ -27,8 +26,12 @@ const StAdvertisement = styled.li`
   align-items: center;
 `;
 
-const StImageContainer = styled.div`
+const StAnchor = styled.a`
   width: 100%;
+  height: 100%;
+`;
+
+const StImageContainer = styled.div`
   height: 100%;
   text-align: center;
 `;
