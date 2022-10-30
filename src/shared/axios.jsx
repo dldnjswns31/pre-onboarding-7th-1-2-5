@@ -18,4 +18,7 @@ export const apis = {
       },
     });
   },
+  getIssue: (issueNumber) => {
+    return api(`/issues/${issueNumber}`);
+  },
 };
