@@ -18,7 +18,8 @@ const StHeader = styled.header`
   top: 0;
   width: 100vw;
   height: 4rem;
-  background-color: gray;
+  background-color: white;
+  box-shadow: 0 4px 10px -4px black;
   align-items: center;
   justify-content: center;
 `;
@@ -27,7 +28,6 @@ const StTitleContainer = styled.div`
   width: 100%;
   max-width: calc(1200px + 4rem);
   margin: 0 2rem;
-  background-color: white;
 `;
 
 const StTitle = styled.h1`
