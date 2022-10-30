@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const List = ({ issue, listRef }) => {
   return (
     <StList ref={listRef}>
-      <Link to={`/issue/${issue.number}`} state={{ issue }}>
+      <Link to={`/issue/${issue.number}`}>
         <StListLeftContent>
           <StListTitleAndInfo>
             <StListIssueNumber># {issue.number}</StListIssueNumber>
@@ -37,7 +37,6 @@ const StList = styled.li`
 const StListLeftContent = styled.div`
   flex: 19 1 0;
   margin-right: 2rem;
-  background-color: aliceblue;
 `;
 
 const StListTitleAndInfo = styled.div`
@@ -58,7 +57,6 @@ const StListInfo = styled.div`
 const StListRightContent = styled.div`
   display: flex;
   flex: 1 0 4rem;
-  background-color: antiquewhite;
   justify-content: center;
   align-items: center;
 `;
