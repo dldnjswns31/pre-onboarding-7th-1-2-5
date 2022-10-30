@@ -1,12 +1,11 @@
 import React from 'react';
-import Header from '../components/Header';
+import { useLocation } from 'react-router-dom';
+import DetailFrame from '../components/Detail/DetailFrame';
 
 const Detail = () => {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  const location = useLocation();
+  const issue = location.state.issue;
+  return <DetailFrame issue={issue} />;
 };
 
 export default Detail;

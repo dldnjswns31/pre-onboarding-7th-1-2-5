@@ -1,11 +1,13 @@
-import React from 'react';
-import Header from '../components/Header';
+import ListFrame from '../components/List/ListFrame';
+import IssueContext from '../context/IssueContext';
 
 const List = () => {
   return (
-    <div>
-      <Header />
-    </div>
+    <IssueContext.Consumer>
+      {(obj) => {
+        return <ListFrame obj={obj} />;
+      }}
+    </IssueContext.Consumer>
   );
 };
 
