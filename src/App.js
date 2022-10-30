@@ -10,7 +10,13 @@ const App = () => {
   const [pageNumber, setPageNumber] = useState(1);
   useEffect(() => {
     apis.getIssues(1).then((res) => {
-      setIssues([...issues, ...res.data]);
+      if (pageNumber === 1) {
+        const newIssues = [...issues, ...res.data];
+        newIssues.splice(4, 0, 'advertisement');
+        setIssues(newIssues);
+      } else {
+        setIssues([...issues, ...res.data]);
+      }
       setPageNumber(pageNumber + 1);
     });
   }, []);
