@@ -19,8 +19,7 @@ const SpinnerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: white;
+  min-height: 10vh;
 `;
 
 const Spinners = styled.div`
