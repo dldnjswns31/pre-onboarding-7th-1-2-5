@@ -22,6 +22,7 @@ const StHeader = styled.header`
   box-shadow: 0 4px 10px -4px black;
   align-items: center;
   justify-content: center;
+  z-index: 9999;
 `;
 
 const StTitleContainer = styled.div`
