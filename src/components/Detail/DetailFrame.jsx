@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import apis from '../../apis/apis';
 import Spinner from '../shared/Spinner';
@@ -12,11 +12,22 @@ const DetailFrame = () => {
   const [issue, setIssue] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
-    apis.getIssue(id).then((res) => {
-      setIssue({ ...res.data });
-      setIsLoading(false);
-    });
+    apis
+      .getIssue(id)
+      .then((res) => {
+        setIssue({ ...res.data });
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        navigate('/error', {
+          state: {
+            status: err.response.status,
+          },
+        });
+      });
   }, []);
 
   return (
