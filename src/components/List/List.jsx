@@ -2,21 +2,22 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const List = ({ issue, listRef }) => {
+  const { number, title, user, created_at, comments } = issue;
   return (
     <StList ref={listRef}>
-      <Link to={`/issue/${issue.number}`}>
+      <Link to={`/issue/${number}`}>
         <StListLeftContent>
           <StListTitleAndInfo>
-            <StListIssueNumber># {issue.number}</StListIssueNumber>
-            <StListTitle>{issue.title}</StListTitle>
+            <StListIssueNumber># {number}</StListIssueNumber>
+            <StListTitle>{title}</StListTitle>
           </StListTitleAndInfo>
           <StListInfo>
-            작성자: {issue.user.login}, 작성일:{' '}
-            {`${issue.created_at.slice(0, 4)}년 ${issue.created_at.slice(5, 7)}월 ${issue.created_at.slice(8, 10)}일`}
+            <p>작성자: {user.login},</p>{' '}
+            <p>작성일: {`${created_at.slice(0, 4)}년 ${created_at.slice(5, 7)}월 ${created_at.slice(8, 10)}일`}</p>
           </StListInfo>
         </StListLeftContent>
         <StListRightContent>
-          <StCommentNumber>코멘트 : {issue.comments}</StCommentNumber>
+          <StCommentNumber>코멘트 : {comments}</StCommentNumber>
         </StListRightContent>
       </Link>
     </StList>
@@ -42,25 +43,42 @@ const StListLeftContent = styled.div`
 const StListTitleAndInfo = styled.div`
   margin-bottom: 1rem;
   font-size: 2rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
 `;
 
 const StListIssueNumber = styled.span`
   margin-right: 1rem;
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const StListTitle = styled.span``;
 
 const StListInfo = styled.div`
   font-size: 1.2rem;
+  p {
+    display: inline-block;
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const StListRightContent = styled.div`
   display: flex;
-  flex: 1 0 4rem;
+  flex: 1 0 4.5rem;
   justify-content: center;
   align-items: center;
 `;
 
 const StCommentNumber = styled.span`
   font-size: 1.2rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
