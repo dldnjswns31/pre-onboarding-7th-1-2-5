@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { apis } from '../../shared/axios';
+import apis from '../../apis/apis';
 import Spinner from '../shared/Spinner';
 import IssueContent from './IssueContent';
 import IssueInfo from './IssueInfo';

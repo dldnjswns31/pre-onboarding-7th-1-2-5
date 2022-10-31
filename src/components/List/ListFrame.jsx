@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
+import apis from '../../apis/apis';
 import { useIssueDispatch, useIssueNextPageNumber, useIssueState } from '../../context/IssueContext';
-import { apis } from '../../shared/axios';
 import Advertisement from '../shared/Advertisement';
 import Spinner from '../shared/Spinner';
 import List from './List';
@@ -21,13 +20,18 @@ const ListFrame = () => {
   useEffect(() => {
     setIsLoading(true);
     if (state.issues.length === 0) {
-      const initAxios = async () => {
-        const res = await apis.getIssues(1);
+      // const initAxios = async () => {
+      //   const res = await apis.getIssues(1);
+      //   dispatch({ issues: res.data, pageNumber: 1 });
+      //   nextPageNumber.current += 1;
+      //   setIsLoading(false);
+      // };
+      // initAxios();
+      apis.getIssues(1).then((res) => {
         dispatch({ issues: res.data, pageNumber: 1 });
         nextPageNumber.current += 1;
         setIsLoading(false);
-      };
-      initAxios();
+      });
     }
   }, []);
 
@@ -70,7 +74,7 @@ const ListFrame = () => {
                 }
               }
             })}
-          {isLoading === !isLastIssue && <Spinner />}
+          {isLoading && !isLastIssue ? <Spinner /> : null}
           {isLastIssue && <StNoIssue>issue가 더 이상 존재하지 않습니다.</StNoIssue>}
         </ul>
       </StContainer>
