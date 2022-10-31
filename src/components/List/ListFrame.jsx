@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import apis from '../../apis/apis';
 import { useIssueDispatch, useIssueNextPageNumber, useIssueState } from '../../context/IssueContext';
@@ -16,22 +17,26 @@ const ListFrame = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   // get first issues
   useEffect(() => {
     setIsLoading(true);
     if (state.issues.length === 0) {
-      // const initAxios = async () => {
-      //   const res = await apis.getIssues(1);
-      //   dispatch({ issues: res.data, pageNumber: 1 });
-      //   nextPageNumber.current += 1;
-      //   setIsLoading(false);
-      // };
-      // initAxios();
-      apis.getIssues(1).then((res) => {
-        dispatch({ issues: res.data, pageNumber: 1 });
-        nextPageNumber.current += 1;
-        setIsLoading(false);
-      });
+      apis
+        .getIssues(1)
+        .then((res) => {
+          dispatch({ issues: res.data, pageNumber: 1 });
+          nextPageNumber.current += 1;
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          navigate('/error', {
+            state: {
+              status: err.response.status,
+            },
+          });
+        });
     }
   }, []);
 
@@ -44,11 +49,20 @@ const ListFrame = () => {
       if (entry.isIntersecting) {
         setIsLoading(true);
         observer.unobserve(entry.target);
-        apis.getIssues(nextPageNumber.current).then((res) => {
-          dispatch({ issues: res.data, pageNumber: nextPageNumber });
-          nextPageNumber.current += 1;
-          setIsLoading(false);
-        });
+        apis
+          .getIssues(nextPageNumber.current)
+          .then((res) => {
+            dispatch({ issues: res.data, pageNumber: nextPageNumber });
+            nextPageNumber.current += 1;
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            navigate('/error', {
+              state: {
+                status: err.response.status,
+              },
+            });
+          });
       }
     });
   };
