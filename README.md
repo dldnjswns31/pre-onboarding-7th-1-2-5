@@ -10,8 +10,8 @@
 
 ## 👥 팀원 소개
 
-| 이름        | github                           |
-| --------------- |  -------------------------------- |
+| 이름            | github                           |
+| --------------- | -------------------------------- |
 | 류승연 (팀장)   | https://github.com/seungyeon-rr  |
 | 공은채 (부팀장) | https://github.com/ericagong     |
 | 박지현          | https://github.com/hyoniiii      |
@@ -20,7 +20,6 @@
 | 임연주          | https://github.com/yeondooo      |
 | 지재영          | https://github.com/jaeyeong815   |
 | 차혜인          | https://github.com/hyeincha      |
-
 
 ## 🛠 기술 스택
 
@@ -44,22 +43,25 @@
   <br>
 </div>
 
-
 ## 🏁 프로젝트 실행 방법
 
 1. root폴더에 .env 파일을 생성합니다.
+
 ```
   REACT_APP_GITHUB_API_URL=https://api.github.com/repos/angular/angular-cli
 ```
+
 2. 의존성 패키지를 설치합니다.
+
 ```zsh
 $ npm install
 ```
+
 3. 프로젝트를 실행합니다.
+
 ```zsh
 $ npm start
 ```
-
 
 - 현재 repository를 클론한 뒤, 위 순서대로 입력하면 localhost:3000 포트에서 해당 코드가 실행됩니다.
 
@@ -90,7 +92,7 @@ $ npm start
 
 ## 🔗 배포 링크
 
-[CheckIssue](http://team5-checkissue.s3-website.ap-northeast-2.amazonaws.com/)
+[CheckIssue](https://pre-onboarding-7th-1-2-5.vercel.app/)
 
 - 해당 프로젝트는 AWS S3를 통해 배포하였습니다.
 - 상단 링크에 접속하시면 바로 CheckIssue를 이용할 수 있습니다.
@@ -110,10 +112,10 @@ $ npm start
  ┃ ┣ 📂Detail
  ┃ ┃ ┣ 📜DetailFrame.jsx - DetailPage 레이아웃
  ┃ ┃ ┣ 📜IssueContent.jsx - Markdown 레이아웃
- ┃ ┃ ┗ 📜IssueInfo.jsx - Issue 상세 정보 
+ ┃ ┃ ┗ 📜IssueInfo.jsx - Issue 상세 정보
  ┃ ┣ 📂List
  ┃ ┃ ┣ 📜List.jsx - List 모듈
- ┃ ┃ ┗ 📜ListFrame.jsx - ListPage 목록 & 무한스크롤링  
+ ┃ ┃ ┗ 📜ListFrame.jsx - ListPage 목록 & 무한스크롤링
  ┃ ┗ 📂shared
  ┃ ┃ ┣ 📜Advertisement.jsx - 광고 배너 컴포넌트
  ┃ ┃ ┣ 📜Error.jsx - 에러 컴포넌트
@@ -123,7 +125,7 @@ $ npm start
  ┣ 📂context
  ┃ ┗ 📜IssueContext.jsx - ContextAPI store
  ┣ 📂pages
- ┃ ┣ 📜DetailPage.jsx 
+ ┃ ┣ 📜DetailPage.jsx
  ┃ ┣ 📜ErrorPage.jsx
  ┃ ┣ 📜ListPage.jsx
  ┃ ┗ 📜NotFoundPage.jsx
@@ -132,19 +134,18 @@ $ npm start
  ┣ 📜App.js
  ┣ 📜Router.jsx
  ┗ 📜index.js
- ```
+```
 
 </div>
 </details>
 
-
 ## ✨ 주요 기능
 
-| 페이지             | API 연결 및 기능                                                                                                                                                                                                                                                                                     |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 페이지         | API 연결 및 기능                                                                                                                                                                                                                                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ------ | ----------------------------- |
 | 이슈 목록 화면 | ✅이슈 목록 가져오기 API 활용<br> ✅open 상태의 이슈 중 코멘트가 많은 순으로 정렬<br> ✅각 행에는 ‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트수’를 표시<br>✅다섯번째 셀에는 광고 이미지 출력 및 광고 이미지 클릭 시 https://www.wanted.co.kr/ 로 이동<br>✅화면을 아래로 스크롤 할 시 이슈 목록 추가 로딩(인피니티 스크롤)<br> |
-| 이슈 상세 화면        | ✅이슈의 상세 내용 표시<br>✅‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트 수, 작성자 프로필 이미지, 본문' 표시<br>|
-| 공통 헤더        | ✅두 페이지는 공통 헤더를 공유합니다.<br>✅헤더에는 Organization Name / Repository Name이 표시됩니다.<br>                                                                                                                                                 |  | 반응형 | ✅모바일<br>✅태블릿 <br>✅PC |
+| 이슈 상세 화면 | ✅이슈의 상세 내용 표시<br>✅‘이슈번호, 이슈제목, 작성자, 작성일, 코멘트 수, 작성자 프로필 이미지, 본문' 표시<br>                                                                                                                                                                                                               |
+| 공통 헤더      | ✅두 페이지는 공통 헤더를 공유합니다.<br>✅헤더에는 Organization Name / Repository Name이 표시됩니다.<br>                                                                                                                                                                                                                       |     | 반응형 | ✅모바일<br>✅태블릿 <br>✅PC |
 
 ## ❗️ 필수 요구사항
 
@@ -154,24 +155,27 @@ $ npm start
 - 에러 화면 구현
 - 지정된 조건(open 상태, 코멘트 많은 순)에 맞게 데이터 요청 및 표시
 - 반응형 웹 구현(UI는 데스크톱, 모바일에서 보았을 때 모두 읽기 편하게 구현)
-  
+
 ## 👍 Best Practice 선정 이유
 
 ### 인피니티 스크롤 : Intersection Observer API
+
 - 타겟 요소와 상위 요소 또는 최상위 document 의 viewport 사이의 intersection 내의 변화를 비동기적으로 관찰하여 scroll event 방식의 단점인 불필요한 API 요청을 줄이고 에러를 방지하였습니다.
-https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/components/List/ListFrame.jsx#L43-L73
+  https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/components/List/ListFrame.jsx#L43-L73
 
 ### Context API
+
 - Reducer를 사용하여 상태관리를 용이하게 했습니다.
 - props를 넘겨주지 않아도 각 component에서 전역적으로 관리되는 데이터를 필요한 곳에서만 사용할 수 있습니다.
-https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/context/IssueContext.jsx#L1-L44
+  https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/context/IssueContext.jsx#L1-L44
 
-### github API 
+### github API
+
 - 쿼리 파라미터로 조건을 지정하여 불필요한 로직을 줄였습니다.
-https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/apis/apis.js#L1-L18
+  https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/apis/apis.js#L1-L18
 
 ### 에러 화면
-- 에러화면으로 리다이렉트 시 메인 페이지로 이동하는 버튼을 추가하여 UX를 개선했습니다.
-https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/components/List/ListFrame.jsx#L26-L40
-https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/components/shared/Error.jsx#L4-L16
 
+- 에러화면으로 리다이렉트 시 메인 페이지로 이동하는 버튼을 추가하여 UX를 개선했습니다.
+  https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/components/List/ListFrame.jsx#L26-L40
+  https://github.com/FindBestPractice/CheckIssue/blob/8882f42d32d62da4bb7c5f01a8efdb62b2b117fe/src/components/shared/Error.jsx#L4-L16
