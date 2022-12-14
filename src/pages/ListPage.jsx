@@ -1,4 +1,4 @@
-import ListFrame from '../components/list/ListFrame';
+import ListFrame from '../components/List/ListFrame';
 
 const ListPage = () => {
   return <ListFrame />;
