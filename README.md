@@ -94,7 +94,7 @@ $ npm start
 
 [CheckIssue](https://pre-onboarding-7th-1-2-5.vercel.app/)
 
-- 해당 프로젝트는 AWS S3를 통해 배포하였습니다.
+- 해당 프로젝트는 vercel을 통해 배포하였습니다.
 - 상단 링크에 접속하시면 바로 CheckIssue를 이용할 수 있습니다.
 
 ## 📦 파일 구조
