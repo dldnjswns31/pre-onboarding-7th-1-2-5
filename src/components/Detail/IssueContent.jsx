@@ -5,7 +5,7 @@ const IssueContent = ({ issue }) => {
     <div data-color-mode="light">
       <MDEditor.Markdown source={issue.body} style={{ padding: 32, backgroundColor: '#FAFAFA' }} />;
     </div>
-  )
+  );
 };
 
 export default IssueContent;
